@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ledgers
   root 'welcome#index'
   resources :whiskeys
 
