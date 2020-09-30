@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: get_current_user
+    render json: get_current_user(include :whiskeys) 
   end
 
   # POST /users
