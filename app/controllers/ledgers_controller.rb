@@ -16,7 +16,7 @@ class LedgersController < ApplicationController
   def user_show
     render json:@ledger.find(:user_id).to_json(include: [:whiskey])
   end
-  
+
   # POST /ledgers
   def create
     @ledger = Ledger.new(ledger_params)
