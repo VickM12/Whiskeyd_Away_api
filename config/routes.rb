@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  resources :ledgers
-  root 'welcome#index'
+   root 'welcome#index'
+   
+   resources :ledgers do
+      collection do
+        get '/ledgers/users/:id', to: 'ledgers#user_show' 
+      end
+    end
+
+
+ 
+
   resources :whiskeys
 
   resources :users do                                                            

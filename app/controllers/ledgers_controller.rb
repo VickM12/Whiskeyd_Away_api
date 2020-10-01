@@ -5,14 +5,18 @@ class LedgersController < ApplicationController
   def index
     @ledgers = Ledger.all
 
-    render json: @ledgers(include: [:user, :whiskey])
+    render json: @ledgers.to_json(include: [:user, :whiskey])
   end
 
   # GET /ledgers/1
   def show
-    render json: @ledger(include: [:user, :whiskey])
+    render json: @ledger.to_json(include: [:user, :whiskey])
   end
 
+  def user_show
+    render json:@ledger.find(:user_id).to_json(include: [:whiskey])
+  end
+  
   # POST /ledgers
   def create
     @ledger = Ledger.new(ledger_params)
