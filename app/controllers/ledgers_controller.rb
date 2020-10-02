@@ -14,7 +14,7 @@ class LedgersController < ApplicationController
   end
 
   def user_show
-    render json:@ledger.find(:user_id).to_json(include: [:whiskey])
+    render json: Ledger.find(params[:user_id]).to_json(include: [:whiskey, :user])
   end
 
   # POST /ledgers
