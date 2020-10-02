@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
-  before_action :authenticate_token, except: [:login, :create]
-  before_action :authorize_user, except: [:login, :create, :index]
+  before_action :set_user, only: [:show, :show_whiskeys, :update, :destroy]
+  before_action :authenticate_token, except: [:login, :show_whiskeys, :create]
+  before_action :authorize_user, except: [:login, :show_whiskeys, :create, :index]
   
   # Login for users
   def login        
@@ -23,9 +23,12 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: get_current_user
+    render json: get_current_user.to_json(include :whiskeys, :id) 
   end
 
+  def show_whiskeys
+    render json: User.find(params[:id]).to_json(include: :whiskeys)
+  end
   # POST /users
   def create
     @user = User.new(user_params)
