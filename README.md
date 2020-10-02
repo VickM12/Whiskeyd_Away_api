@@ -1,24 +1,10 @@
-# README
+# Whiskeyd Away API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an app I built using API mode in "Ruby on Rails." This app serves as the back-end server to host the database containing the information on the different whiskeys that users can submit. It also houses authentication for the creation and authorization of users.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Tech Used
+Ruby
+Rails
+PostgreSQL
+BCRYP
+rack-Cors
