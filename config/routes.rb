@@ -3,7 +3,7 @@ Rails.application.routes.draw do
    
    resources :ledgers do
       collection do
-        get '/:user/whiskeys', to: 'ledgers#index' 
+        get '/:id/whiskeys', to: 'users#show_whiskeys' 
       end
     end
 

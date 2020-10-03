@@ -14,7 +14,7 @@ class LedgersController < ApplicationController
   end
 
   def user_show
-    render json: Ledger.find(params[:user]).to_json(include: [:whiskey])
+    render json: Ledger.find(params[:user_id]).to_json(include: [:whiskey])
   end
 
   # POST /ledgers
@@ -45,7 +45,7 @@ class LedgersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ledger
-      @ledger = Ledger.find(params[:id])
+      @ledger = Ledger.find(params[:id || :user_id])
     end
 
     # Only allow a trusted parameter "white list" through.
